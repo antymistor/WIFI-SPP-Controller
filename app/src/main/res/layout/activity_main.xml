@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.lianxi.MainActivity"
+    tools:showIn="@layout/activity_main">
+-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/start_animation"
+        android:rotation="90"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="-280dp"
+        android:layout_marginStart="-280dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lottie_scale="2"
+        app:lottie_fileName="ondas.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+    <Button
+        android:id="@+id/fxcon"
+        android:text="方向控制"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="-50dp"
+        android:layout_marginEnd="-50dp"
+        android:rotation="90"
+        android:background="@drawable/button_style"
+        android:layout_width="300dp"
+        android:layout_height="40dp" />
+    <Button
+        android:id="@+id/gjcon"
+        android:text="关节控制"
+        android:rotation="90"
+        android:layout_marginRight="-230dp"
+        android:layout_marginEnd="-230dp"
+        android:background="@drawable/button_style"
+        android:layout_toLeftOf="@id/fxcon"
+        android:layout_centerVertical="true"
+        android:layout_width="300dp"
+        android:layout_height="40dp" />
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotation="90"
+        android:layout_centerVertical="true"
+        android:text=""
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="-130dp"
+        android:layout_marginStart="-130dp"
+        />
+</RelativeLayout>
