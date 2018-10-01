@@ -39,7 +39,6 @@ public class MainActivity extends Activity {
         gjcon.setOnClickListener(mylistener);
     }
     View.OnClickListener mylistener = new View.OnClickListener() {
-
         @Override
         public void onClick(View v) {
             WifiManager wifiManager = (WifiManager) (WifiManager)getApplicationContext().getSystemService(WIFI_SERVICE);

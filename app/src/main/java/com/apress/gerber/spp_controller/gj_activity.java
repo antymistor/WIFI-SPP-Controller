@@ -145,16 +145,16 @@ public class gj_activity extends Activity{
                 if(qgctrl.get(i).getId()==compoundButton.getId())
                 {
                     if(b)
-                    {push[i]=cylinderpush;}
+                    {push[i]=cylinderpush;
+                    sendMessage("IT00"+i+"P001\r\n");
+                    }
                     else
-                    {push[i]=0;}
+                    {push[i]=0;sendMessage("IT00"+i+"P000\r\n");}
                     stlView.setpush(push);
                     break;
                 }
             }
-
         }
-
     }
     private final class mycheckboxlistener implements CheckBox.OnClickListener{
         @Override
