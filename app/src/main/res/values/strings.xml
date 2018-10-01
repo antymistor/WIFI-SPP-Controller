@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SPP-controller</string>
+    <string name="app_name">WL-CT</string>
     <string name="action_settings">Settings</string>
     <!--  BluetoothChat -->
     <string name="send">Send</string>

@@ -9,15 +9,16 @@
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/pa3"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/pa3"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,7 +34,9 @@
         </activity>
         <activity
             android:name=".DeviceListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@android:style/Theme.Holo.Dialog"
+            android:configChanges="orientation|keyboardHidden"
+            >
         </activity>
     </application>
 

@@ -29,7 +29,6 @@ public class gj_activity extends Activity{
     public static final int MESSAGE_TOAST = 5;
     private TextView PE2;
     private static int SPP_MODE=0;
-    private static int WIFI_MODE=1;
     private int CTRMODE=SPP_MODE;
     private final float cylinderpush =150;
     private boolean supportsEs2;
@@ -52,6 +51,7 @@ public class gj_activity extends Activity{
     private ArrayList<Switch>  qgctrl =new ArrayList<>();
     private ArrayList<TextView> display=new ArrayList<>();
     private ArrayList<CheckBox> check=new ArrayList<>();
+    private Boolean frflag=true;
     private SeekBar pushtime;
     private SeekBar pushpower;
     private TextView timetext;
@@ -261,7 +261,7 @@ public class gj_activity extends Activity{
         }
 
 
-        startActivityForResult(new Intent(this, DeviceListActivity.class), REQUEST_CONNECT_DEVICE_SECURE);
+            startActivityForResult(new Intent(this, DeviceListActivity.class), REQUEST_CONNECT_DEVICE_SECURE);
 
     }
     private void setupChat() {
