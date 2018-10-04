@@ -364,10 +364,11 @@
         android:layout_marginTop="-27dp"
         android:textStyle="bold"
         android:text="Power:   +00"/>
-    <TextView
+    <Button
         android:id="@+id/PE1"
         android:rotation="90"
-        android:layout_marginStart="-25dp"
+        android:background="@drawable/button_style"
+        android:layout_marginStart="-20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/pushtime"
@@ -375,7 +376,7 @@
         android:layout_marginLeft="0dp"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:text="Single Control"/>
+        android:text="cyctr"/>
     <TextView
         android:id="@+id/PE2"
         android:rotation="90"
@@ -387,7 +388,7 @@
         android:layout_marginLeft="0dp"
         android:textStyle="bold"
         android:textSize="15sp"
-        android:text="Single Control"/>
+        />
 
 
     <RelativeLayout

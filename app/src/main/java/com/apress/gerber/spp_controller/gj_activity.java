@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
@@ -37,6 +38,7 @@ public class gj_activity extends Activity{
     private ArrayList<String> stlsourse =new ArrayList<>();
     private float rotate[]=new float[8];
     private float push[]=new float[8];
+    private int pr[]=new int[4];
     private int ctrtarget=0;
     private static final int REQUEST_CONNECT_DEVICE_SECURE = 1;
     private static final int REQUEST_CONNECT_DEVICE_INSECURE = 2;
@@ -52,6 +54,7 @@ public class gj_activity extends Activity{
     private ArrayList<TextView> display=new ArrayList<>();
     private ArrayList<CheckBox> check=new ArrayList<>();
     private Boolean frflag=true;
+    private Button PE1=null;
     private SeekBar pushtime;
     private SeekBar pushpower;
     private TextView timetext;
@@ -146,10 +149,14 @@ public class gj_activity extends Activity{
                 {
                     if(b)
                     {push[i]=cylinderpush;
-                    sendMessage("IT00"+i+"P001\r\n");
+                    //sendMessage("IT00"+i+"P001\r\n");
+                        pr[i]=1;
                     }
                     else
-                    {push[i]=0;sendMessage("IT00"+i+"P000\r\n");}
+                    {push[i]=0;
+                    //sendMessage("IT00"+i+"P000\r\n");
+                        pr[i]=0;
+                    }
                     stlView.setpush(push);
                     break;
                 }
@@ -163,7 +170,6 @@ public class gj_activity extends Activity{
             for(i=0;i<8;i++){
                 if(check.get(i).getId()==view.getId())
                 {
-
                     int j;
                     for(j=0;j<8;j++){
                         check.get(j).setChecked(false);
@@ -181,7 +187,7 @@ public class gj_activity extends Activity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         checkSupported();
-
+        pr[0]=pr[1]=pr[2]=pr[3]=0;
         if (supportsEs2) {
             setContentView(R.layout.content2_main);
             stlsourse.add("gj0.STL");
@@ -227,7 +233,13 @@ public class gj_activity extends Activity{
             pushpower.setOnSeekBarChangeListener(new Tseekbarlistener());
             timetext=findViewById(R.id.timetext);
             powertext=findViewById(R.id.powertext);
-
+            PE1=findViewById(R.id.PE1);
+            PE1.setOnClickListener(new Button.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sendMessage("IT"+pr[0]+pr[1]+pr[2]+"P"+pr[3]+"00\r\n");
+                }
+            });
             int i=0;
             for(i=0;i<8;i++){
                 contrlbar.get(i).setOnSeekBarChangeListener(new myseekbarlistener());
@@ -338,7 +350,6 @@ public class gj_activity extends Activity{
         public boolean handleMessage(Message msg) {
             switch (msg.what) {
                 case MESSAGE_STATE_CHANGE:
-
                     switch (msg.arg1) {
                         case BluetoothChatService.STATE_CONNECTED:
                             //setStatus(getString(R.string.title_connected_to, mConnectedDeviceName));
